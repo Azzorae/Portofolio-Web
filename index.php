@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #262b30;
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #18191b;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo i {
+            font-size: 24px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+
+        .navbar .logo .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav a {
+            color: #c9d1d9;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar .menu-icon {
+            font-size: 24px;
+            color: white;
+            display: none;
+        }
+
+
+        .logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo i {
+            height: 45px;
+            width: 45px;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 9px;
+            padding-left: 6px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .logo .logo-text {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        nav .togglebtn {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 45px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        nav .togglebtn span {
+            display: block;
+            background-color: #697582;
+            margin-right: 5px 0px;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+            transition-property: transform, opacity;
+        }
+
+        nav .togglebtn span:nth-child(2) {
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+
+        .nav a {
+            color: #e5e5e5;
+            margin-right: 2.5rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        .container .profil {
+            width: 300px;
+            height: 300px;
+            margin-top: 20vh;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #2c3136;
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 24%;
+            top: 10%;
+
+        }
+
+        .profil img {
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+        }
+
+        .profil img:hover {
+            transform: scale(1.2);
+        }
+
+        .hero {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            background: #18191b;
+        }
+
+        .hero-text {
+            position: absolute;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20vh;
+            justify-content: center;
+            left: 46%;
+            top: 14%
+        }
+
+        .hero-text h5 {
+            color: #e5e5e5;
+            font-size: 14px;
+        }
+
+        .hero-text h5 span {
+            color: #adc1d6;
+            font-size: 16px;
+        }
+
+        .hero-text h1 {
+            color: #adc1d6;
+            font-size: 3rem;
+        }
+
+        .hero-text p {
+            color: #e5e5e5;
+        }
+
+        .btn-group {
+            margin: 45px 0;
+        }
+
+        .btn-group .btn {
+            border-color: #d5d5d5;
+            color: #fff;
+            background-color: #18191b;
+            padding: 12px 25px;
+            margin: 5px 0;
+            margin-right: 7px;
+            border-radius: 30px;
+            border: 2px solid #d5d5d5;
+        }
+
+        .btn-group .btn:hover {
+            transform: scale(1.05);
+            background-color: #262b30;
+            color: white;
+        }
+
+        .btn-sosmed a {
+            border-color: #d5d5d5;
+            color: #fff;
+            padding: 9px 12px;
+            border-radius: 30px;
+            margin-right: 10px;
+            border: 2px solid #d5d5d5;
+        }
+
+        .btn-sosmed a:hover {
+            transform: scale(1.05);
+            background-color: #262b30;
+            color: white;
+        }
+
+        .about {
+            padding: 120px 20px;
+            min-height: 100vh;
+            background-color: #18191b;
+            margin: 5vh;
+            border-radius: 20px;
+        }
+
+        .div-about h2 {
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 5vh;
+        }
+
+        .intro {
+            color: white;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .intro span {
+            color: #adc1d6;
+        }
+
+        .description span {
+            color: #adc1d6;
+        }
+
+        .description {
+            color: white;
+            text-align: center;
+            padding-bottom: 5vh;
+            font-weight: 100;
+            margin-right: 15vh;
+            margin-left: 15vh;
+        }
+
+        .info-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+            margin-left: 15vh;
+            margin-right: 15vh;
+        }
+
+        .info-column {
+            flex: 1 1 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            border-bottom: 1px solid #adc1d6;
+            padding-bottom: 0.25rem;
+            font-size: 1rem;
+            color: white;
+        }
+ssasdddddddqw
+        .info-item strong {
+            font-weight: 700;
+            color: #adc1d6;
+        }
+
+        .info-item span {
+            margin-left: 0.25rem;
+            font-weight: 400;
+        }
+
+        .skills {
+            padding: 120px 20px;
+            min-height: 100vh;
+            background-color: #18191b;
+            margin: 5vh;
+            border-radius: 20px;
+        }
+
+        .div-skills h2 {
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 5vh;
+        }
+
+        .skills-list {
+            display: flex;
+            width: max-content;
+            gap: 1rem;
+        }
+
+        .horizontal-scroll {
+            margin-left: 17vh;
+            width: 80%;
+            overflow-x: scroll;
+            overflow-y: scroll
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .skill figcaption {
+            color: white;
+            bottom: 0;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.76);
+            padding: 1rem 0;
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        .skill:hover figcaption {
+            display: block;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            transition: 0.1s linear;
+        }
+
+        .bonus {
+            color: white;
+            text-align: center;
+            font-family: 100px;
+            margin-top: 20vh;
+        }
+
+        .bonus span {
+            color: #adc1d6;
+        }
+
+        .projects {
+            font-family: 'Roboto', sans-serif;
+            padding: 120px 20px;
+            min-height: 100vh;
+            background-color: #18191b;
+            margin: 5vh;
+            border-radius: 20px;
+        }
+
+        .projects h2 {
+            font-weight: bold;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #e5e5e5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-right: 20vh;
+            margin-left: 20vh;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background-color: #697582;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card .content {
+            padding: 5px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+            text-align: center;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            color: #2c3136;
+            margin: 4px 0 0;
+        }
+
+
+        .contact {
+            padding: 120px 20px;
+            min-height: 100vh;
+            background-color: #18191b;
+            margin: 5vh;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .contact-container {
+            background-color: #18191b;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+            width: 100%;
+            max-width: 40rem;
+        }
+
+        .contact-container span {
+            color: #adc1d6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d5d5d5;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            text-align: center;
+            color: #d5d5d5;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #18191b;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #697582;
+            box-shadow: 0 0 0 2px rgba(227, 52, 47, 0.2);
+        }
+
+        button {
+            width: 100%;
+            background-color: #18191b;
+            border: 1px solid #d5d5d5;
+            color: #d5d5d5;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #262b30;
+            color: #d5d5d5;
+        }
+
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+
+        .outro {
+            text-align: center;
+            color:rgb(180, 180, 180);
+            font-size: 15px;
+            margin-bottom: 2rem;
+            font-family: Arial, Helvetica, sans-serif   ;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="home">
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-code"></i>
+                <div class="logo-text">zorl</div>
+            </div>
+            <div class="nav">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <div class="profil">
+                <img src="WhatsApp Image 2025-05-22 at 23.36.13_296e74f6.jpg" alt="profile pic" />
+            </div>
+            <div class="hero-text">
+                <h5>Hi, saya <span class="">Backend Developer(?)</span></h5>
+                <h1>Achmad Rafif Almair</h1>
+                <p>
+                    Programmer, Pelajar, Dan seseorang yang menyukai teknologi.
+                </p>
+
+                <div class="btn-group">
+                    <a href="achievement.php" class="btn active">Achievements</a>
+                    <a href="achievement.php" class="btn">E-Certificates</a>
+                </div>
+
+                <div class="btn-sosmed">
+                    <a href="https://wa.me/6281217547613"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/achmdraaa?igsh=MWQ2ajNzaTdnc2szNQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@azzorae?_t=ZS-8uTS5oJO1yC&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/1Ft3mrmTrc/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@rafifalmair6796"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="div-about">
+            <h2>Tentang Saya</h2>
+            <div class="intro">
+                <h2>Perkenalkan, Nama saya <span>Achmad Rafif Almair</span>.</h2>
+            </div>
+            <div class="description">Saya adalah seorang pelajar dari SMKN 1 Surabaya berjurusan <span>Rekayasa Perangkat Lunak</span> (RPL). Sebelum saya memasuki SMKN 1 Surabaya, saya adalah pelajar dari SMPN 39 Surabaya. Saya memilih jurusan Rekayasa Perangkat Lunak karena ketertarikan saya akan perkembangan teknologi. Hobi saya akhir-akhir ini adalah ngoding dan bermain game. Sejujurnya, saya tidak memiliki cita-cita, hanya saja karena ketertarikan saya akan teknologi, saya ingin untuk menjadi sebuah developer maupun itu game dev atau web dev.</div>
+            <div class="info-columns">
+                <div class="info-column">
+                    <div class="info-item"><strong>Tanggal Lahir </strong>:<span>6 November 2008</span></div>
+                    <div class="info-item"><strong>Hobby </strong>:<span>Code & Game</span></div>
+                    <div class="info-item"><strong>Keahlian </strong>:<span>Backend</span></div>
+                    <div class="info-item"><strong>Kota </strong>:<span>Surabaya</span></div>
+                </div>
+                <div class="info-column">
+                    <div class="info-item"><strong>Umur </strong>:<span>16</span></div>
+                    <div class="info-item"><strong>Email </strong>:<span>rafifalmair06@gmail.com</span></div>
+                    <div class="info-item"><strong>Phone </strong>:<span>+62 81217547613 </span></div>
+                    <div class="info-item"><strong>Pendidikan </strong>:<span>Sekolah Menengah Kejuruan</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="div-skills">
+            <h2>Skills</h2>
+            <div class="horizontal-scroll">
+                <div class="skills-list">
+                    <a href="https://www.w3schools.com/html/"><figure class="skill"><img src="css.jpg" alt="" width="200"></a>
+                        <figcaption>HTML</figcaption>
+                    </figure>
+                    <a href="https://www.w3schools.com/css/"><figure class="skill"><img src="html.jpg" alt="" width="200"></a>
+                        <figcaption>CSS</figcaption>
+                    </figure>
+                    <a href="https://www.w3schools.com/python/default.asp"><figure class="skill"><img src="python.jpg" alt="" width="200"></a>
+                        <figcaption>Python</figcaption>
+                    </figure>
+                    <a href="https://id.wikipedia.org/wiki/Scratch_(bahasa_pemrograman)"><figure class="skill"><img src="scratch.jpg" alt="" width="200"></a>
+                        <figcaption>Scratch</figcaption>
+                    </figure>
+                    <a href="https://editors.fandom.com/wiki/Alight_motion"><figure class="skill"><img src="alight motion.png" alt="" width="200"></a>
+                        <figcaption>Alight Motion</figcaption>
+                    </figure>
+                    <a href="https://roblox.fandom.com/wiki/Roblox_Studio"><figure class="skill"><img src="robloxstud.png" alt="" width="200"></a>
+                        <figcaption>Roblox Studio</figcaption>
+                    </figure>
+                    <a href="https://id.wikipedia.org/wiki/CapCut"><figure class="skill"><img src="capcut.png" alt="" width="200"></a>
+                        <figcaption>Capcut</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <h1 class="bonus">Itu semua adalah <span>skill saya</span> untuk mengejar keinginan.</h1>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="Screenshot 2025-02-17 092548.png" alt="Abstract Art">
+                <div class="content">
+                    <h3>Way Back Home</h3>
+                    <p>Way Back Home adalah game scratch tugas awal.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Screenshot 2025-02-17 092714.png" alt="3D Art">
+                <div class="content">
+                    <h3>Portofolio</h3>
+                    <p>Projek ini adalah projek ini.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Screenshot 2025-05-23 084459.png" alt="Modern Art">
+                <div class="content">
+                    <h3>ITC Web</h3>
+                    <p>Projek ITC yang berguna untuk mencatat materi ITC.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="White clean crumpled paper background_ Vertical crumpled empty paper template for poster.jpeg" alt="Cinema">
+                <div class="content">
+                    <h3>Project(?)</h3>
+                    <p>No Project yet.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="White clean crumpled paper background_ Vertical crumpled empty paper template for poster.jpeg" alt="Digital">
+                <div class="content">
+                    <h3>Project(?)</h3>
+                    <p>No Project yet.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="White clean crumpled paper background_ Vertical crumpled empty paper template for poster.jpeg" alt="Photography">
+                <div class="content">
+                    <h3>Project(?)</h3>
+                    <p>No Project yet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h1>Contact Me</h1>
+            <p>Beri saya pesan email <span>jika kamu tidak mau</span> berkontak di sosmed</p>
+            <form method="POST" action="proses-pengiriman.php">
+                <div class="input-group">
+                    <input type="text" placeholder="Name" name="nama">
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <input type="contact-text" placeholder="About" name="kategori">
+                <textarea placeholder="Message" name="pesan"></textarea>
+                <button type="submit" name="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
