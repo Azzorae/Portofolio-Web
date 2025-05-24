@@ -299,7 +299,7 @@
             font-size: 1rem;
             color: white;
         }
-ssasdddddddqw
+
         .info-item strong {
             font-weight: 700;
             color: #adc1d6;
